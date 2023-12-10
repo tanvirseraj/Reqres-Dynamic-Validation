@@ -1,0 +1,1131 @@
+{
+	"info": {
+		"_postman_id": "a1960a7f-d4cd-4f2c-81e8-6af19d152a88",
+		"name": "Reqres-Dynamic-Validation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31249794"
+	},
+	"item": [
+		{
+			"name": "LIST-USERS",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let response = pm.response.code;\r",
+							"let status = pm.response.status;\r",
+							"if(response === 200 && status ===\"OK\"){\r",
+							"    pm.test(\"Status code is 200\", function () {\r",
+							"    pm.expect(response).to.eql(200)\r",
+							"    });\r",
+							"}else{\r",
+							"    pm.test(\"Status code is not 200\", function () {\r",
+							"        pm.expect(response).to.eql(200);\r",
+							"    });\r",
+							"}\r",
+							"\r",
+							"//Extra Validation\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.environment.set(\"paGe\", jsonData.page)\r",
+							"pm.test(\"Page Validation\", function () {\r",
+							"    pm.expect(jsonData.page).to.eql(pm.environment.get(\"paGe\"))\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.environment.set(\"perPage\", jsonData.per_page)\r",
+							"pm.test(\"Per Page Validation\", function () {\r",
+							"    pm.expect(jsonData.per_page).to.eql(pm.environment.get(\"perPage\"))\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.environment.set(\"toTal\", jsonData.total)\r",
+							"pm.test(\"Total Validation\", function () {\r",
+							"    pm.expect(jsonData.total).to.eql(pm.environment.get(\"toTal\"))\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.environment.set(\"totalPages\", jsonData.total_pages)\r",
+							"pm.test(\"Total Pages Validation\", function () {\r",
+							"    pm.expect(jsonData.total_pages).to.eql(pm.environment.get(\"totalPages\"))\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.environment.set(\"data_Id\", jsonData.data.id)\r",
+							"pm.test(\"Data of Id Validation\", function () {\r",
+							"    pm.expect(jsonData.data.id).to.eql(pm.environment.get(\"data_Id\"))\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.environment.set(\"data_Email\", jsonData.data.email)\r",
+							"pm.test(\"Data of Email Validation\", function () {\r",
+							"    pm.expect(jsonData.data.email).to.eql(pm.environment.get(\"data_Email\"))\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.environment.set(\"data_firstName\", jsonData.data.first_name)\r",
+							"pm.test(\"Data of First Name Validation\", function () {\r",
+							"    pm.expect(jsonData.data.first_name).to.eql(pm.environment.get(\"data_firstName\"))\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.environment.set(\"data_lastName\", jsonData.data.last_name)\r",
+							"pm.test(\"Data of Last Name Validation\", function () {\r",
+							"    pm.expect(jsonData.data.last_name).to.eql(pm.environment.get(\"data_lastName\"))\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.environment.set(\"data_Avatar\", jsonData.data.avatar)\r",
+							"pm.test(\"Data of Avatar Validation\", function () {\r",
+							"    pm.expect(jsonData.data.avatar).to.eql(pm.environment.get(\"data_Avatar\"))\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.environment.set(\"support_Url\", jsonData.support.url)\r",
+							"pm.test(\"Support of Url Validation\", function () {\r",
+							"    pm.expect(jsonData.support.url).to.eql(pm.environment.get(\"support_Url\"))\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.environment.set(\"support_Text\", jsonData.support.text)\r",
+							"pm.test(\"Support of Text Validation\", function () {\r",
+							"    pm.expect(jsonData.support.text).to.eql(pm.environment.get(\"support_Text\"))\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/users?page=2",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SINGLE-USER",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let response = pm.response.code;\r",
+							"let status = pm.response.status;\r",
+							"if(response === 200 && status ===\"OK\"){\r",
+							"    pm.test(\"Status code is 200\", function () {\r",
+							"    pm.expect(response).to.eql(200)\r",
+							"    });\r",
+							"}else{\r",
+							"    pm.test(\"Status code is not 200\", function () {\r",
+							"        pm.expect(response).to.eql(200);\r",
+							"    });\r",
+							"}\r",
+							"\r",
+							"//Extra Validation\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.environment.set(\"data_Id\", jsonData.data.id)\r",
+							"pm.test(\"Data of Id Validation\", function () {\r",
+							"    pm.expect(jsonData.data.id).to.eql(pm.environment.get(\"data_Id\"))\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.environment.set(\"data_Email\", jsonData.data.email)\r",
+							"pm.test(\"Data of Email Validation\", function () {\r",
+							"    pm.expect(jsonData.data.email).to.eql(pm.environment.get(\"data_Email\"))\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.environment.set(\"data_firstName\", jsonData.data.first_name)\r",
+							"pm.test(\"Data of First Name Validation\", function () {\r",
+							"    pm.expect(jsonData.data.first_name).to.eql(pm.environment.get(\"data_firstName\"))\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.environment.set(\"data_lastName\", jsonData.data.last_name)\r",
+							"pm.test(\"Data of Last Name Validation\", function () {\r",
+							"    pm.expect(jsonData.data.last_name).to.eql(pm.environment.get(\"data_lastName\"))\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.environment.set(\"data_Avatar\", jsonData.data.avatar)\r",
+							"pm.test(\"Data of Avatar Validation\", function () {\r",
+							"    pm.expect(jsonData.data.avatar).to.eql(pm.environment.get(\"data_Avatar\"))\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.environment.set(\"support_Url\", jsonData.support.url)\r",
+							"pm.test(\"Support of Url Validation\", function () {\r",
+							"    pm.expect(jsonData.support.url).to.eql(pm.environment.get(\"support_Url\"))\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.environment.set(\"support_Text\", jsonData.support.text)\r",
+							"pm.test(\"Support of Text Validation\", function () {\r",
+							"    pm.expect(jsonData.support.text).to.eql(pm.environment.get(\"support_Text\"))\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/users/2",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SINGLE-USER-NOT-FOUND",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let response = pm.response.code;\r",
+							"let status = pm.response.status;\r",
+							"if(response === 404 && status ===\"Not Found\"){\r",
+							"    pm.test(\"Status code is 404\", function () {\r",
+							"    pm.expect(response).to.eql(404)\r",
+							"    });\r",
+							"}else{\r",
+							"    pm.test(\"Status code is not 404\", function () {\r",
+							"        pm.expect(response).to.eql(404);\r",
+							"    });\r",
+							"}\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/users/23",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"23"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LIST-<RESOURCE>",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let response = pm.response.code;\r",
+							"let status = pm.response.status;\r",
+							"if(response === 200 && status ===\"OK\"){\r",
+							"    pm.test(\"Status code is 200\", function () {\r",
+							"    pm.expect(response).to.eql(200)\r",
+							"    });\r",
+							"}else{\r",
+							"    pm.test(\"Status code is not 200\", function () {\r",
+							"        pm.expect(response).to.eql(200);\r",
+							"    });\r",
+							"}\r",
+							"\r",
+							"//Extra Validation\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.environment.set(\"paGe\", jsonData.page)\r",
+							"pm.test(\"Page Validation\", function () {\r",
+							"    pm.expect(jsonData.page).to.eql(pm.environment.get(\"paGe\"))\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.environment.set(\"perPage\", jsonData.per_page)\r",
+							"pm.test(\"Per Page Validation\", function () {\r",
+							"    pm.expect(jsonData.per_page).to.eql(pm.environment.get(\"perPage\"))\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.environment.set(\"toTal\", jsonData.total)\r",
+							"pm.test(\"Total Validation\", function () {\r",
+							"    pm.expect(jsonData.total).to.eql(pm.environment.get(\"toTal\"))\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.environment.set(\"totalPages\", jsonData.total_pages)\r",
+							"pm.test(\"Total Pages Validation\", function () {\r",
+							"    pm.expect(jsonData.total_pages).to.eql(pm.environment.get(\"totalPages\"))\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.environment.set(\"data_Id\", jsonData.data.id)\r",
+							"pm.test(\"Data of Id Validation\", function () {\r",
+							"    pm.expect(jsonData.data.id).to.eql(pm.environment.get(\"data_Id\"))\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.environment.set(\"data_Name\", jsonData.data.name)\r",
+							"pm.test(\"Data of Name Validation\", function () {\r",
+							"    pm.expect(jsonData.data.name).to.eql(pm.environment.get(\"data_Name\"))\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.environment.set(\"data_Year\", jsonData.data.year)\r",
+							"pm.test(\"Data of Year Validation\", function () {\r",
+							"    pm.expect(jsonData.data.year).to.eql(pm.environment.get(\"data_Year\"))\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.environment.set(\"data_Color\", jsonData.data.color)\r",
+							"pm.test(\"Data of Color Validation\", function () {\r",
+							"    pm.expect(jsonData.data.color).to.eql(pm.environment.get(\"data_Color\"))\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.environment.set(\"data_pantoneValue\", jsonData.data.pantone_value)\r",
+							"pm.test(\"Data of Pantone Value Validation\", function () {\r",
+							"    pm.expect(jsonData.data.pantone_value).to.eql(pm.environment.get(\"data_pantoneValue\"))\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.environment.set(\"support_Url\", jsonData.support.url)\r",
+							"pm.test(\"Support of Url Validation\", function () {\r",
+							"    pm.expect(jsonData.support.url).to.eql(pm.environment.get(\"support_Url\"))\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.environment.set(\"support_Text\", jsonData.support.text)\r",
+							"pm.test(\"Support of Text Validation\", function () {\r",
+							"    pm.expect(jsonData.support.text).to.eql(pm.environment.get(\"support_Text\"))\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/unknown",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"unknown"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SINGLE -<RESOURCE>",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let response = pm.response.code;\r",
+							"let status = pm.response.status;\r",
+							"if(response === 200 && status ===\"OK\"){\r",
+							"    pm.test(\"Status code is 200\", function () {\r",
+							"    pm.expect(response).to.eql(200)\r",
+							"    });\r",
+							"}else{\r",
+							"    pm.test(\"Status code is not 200\", function () {\r",
+							"        pm.expect(response).to.eql(200);\r",
+							"    });\r",
+							"}\r",
+							"\r",
+							"//Extra Validation\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.environment.set(\"data_Id\", jsonData.data.id)\r",
+							"pm.test(\"Data of Id Validation\", function () {\r",
+							"    pm.expect(jsonData.data.id).to.eql(pm.environment.get(\"data_Id\"))\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.environment.set(\"data_Name\", jsonData.data.name)\r",
+							"pm.test(\"Data of Name Validation\", function () {\r",
+							"    pm.expect(jsonData.data.name).to.eql(pm.environment.get(\"data_Name\"))\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.environment.set(\"data_Year\", jsonData.data.year)\r",
+							"pm.test(\"Data of Year Validation\", function () {\r",
+							"    pm.expect(jsonData.data.year).to.eql(pm.environment.get(\"data_Year\"))\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.environment.set(\"data_Color\", jsonData.data.color)\r",
+							"pm.test(\"Data of Color Validation\", function () {\r",
+							"    pm.expect(jsonData.data.color).to.eql(pm.environment.get(\"data_Color\"))\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.environment.set(\"data_pantoneValue\", jsonData.data.pantone_value)\r",
+							"pm.test(\"Data of Pantone Value Validation\", function () {\r",
+							"    pm.expect(jsonData.data.pantone_value).to.eql(pm.environment.get(\"data_pantoneValue\"))\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.environment.set(\"support_Url\", jsonData.support.url)\r",
+							"pm.test(\"Support of Url Validation\", function () {\r",
+							"    pm.expect(jsonData.support.url).to.eql(pm.environment.get(\"support_Url\"))\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.environment.set(\"support_Text\", jsonData.support.text)\r",
+							"pm.test(\"Support of Text Validation\", function () {\r",
+							"    pm.expect(jsonData.support.text).to.eql(pm.environment.get(\"support_Text\"))\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/unknown/2",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"unknown",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SINGLE <RESOURCE>-NOT-FOUND",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let response = pm.response.code;\r",
+							"let status = pm.response.status;\r",
+							"if(response === 404 && status ===\"Not Found\"){\r",
+							"    pm.test(\"Status code is 404\", function () {\r",
+							"    pm.expect(response).to.eql(404)\r",
+							"    });\r",
+							"}else{\r",
+							"    pm.test(\"Status code is not 404\", function () {\r",
+							"        pm.expect(response).to.eql(404);\r",
+							"    });\r",
+							"}\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/api/unknown/23",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"unknown",
+						"23"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json()\r",
+							"pm.environment.set (\"id\", jsonData.id)\r",
+							"\r",
+							"let response = pm.response.code;\r",
+							"let status = pm.response.status;\r",
+							"if(response === 201 && status ===\"Created\"){\r",
+							"    pm.test(\"Status code is 201\", function () {\r",
+							"    pm.expect(response).to.eql(201)\r",
+							"    });\r",
+							"}else{\r",
+							"    pm.test(\"Status code is not 201\", function () {\r",
+							"        pm.expect(response).to.eql(201);\r",
+							"    });\r",
+							"}\r",
+							"\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.test(\"Name Validation\", function () {\r",
+							"    pm.expect(jsonData.name).to.eql(pm.environment.get(\"firstName\"))\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.test(\"Job Validation\", function () {\r",
+							"    pm.expect(jsonData.job).to.eql(pm.environment.get(\"jobTitle\"))\r",
+							"});\r",
+							"\r",
+							"//Extra Validation\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.test(\"Id Validation\", function () {\r",
+							"    pm.expect(jsonData.id).to.eql(pm.environment.get(\"id\"))\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.environment.set (\"creAt\", jsonData.createdAt)\r",
+							"pm.test(\"Created At Validation\", function () {\r",
+							"    pm.expect(jsonData.createdAt).to.eql(pm.environment.get(\"creAt\"))\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var firstName = pm.variables.replaceIn(\"{{$randomFirstName}}\")\r",
+							"pm.environment.set(\"firstName\", firstName)\r",
+							"\r",
+							"var jobTitle = pm.variables.replaceIn(\"{{$randomJobTitle}}\")\r",
+							"pm.environment.set(\"jobTitle\", jobTitle)\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"{{firstName}}\",\r\n    \"job\": \"{{jobTitle}}\"\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/users",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let response = pm.response.code;\r",
+							"let status = pm.response.status;\r",
+							"if(response === 200 && status ===\"OK\"){\r",
+							"    pm.test(\"Status code is 200\", function () {\r",
+							"    pm.expect(response).to.eql(200)\r",
+							"    });\r",
+							"}else{\r",
+							"    pm.test(\"Status code is not 200\", function () {\r",
+							"        pm.expect(response).to.eql(200);\r",
+							"    });\r",
+							"}\r",
+							"\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.test(\"Name Validation\", function () {\r",
+							"    pm.expect(jsonData.name).to.eql(pm.environment.get(\"firstName\"))\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.test(\"Job Validation\", function () {\r",
+							"    pm.expect(jsonData.job).to.eql(pm.environment.get(\"jobTitle\"))\r",
+							"});\r",
+							"\r",
+							"//Extra Validation\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.environment.set (\"updAt\", jsonData.updatedAt)\r",
+							"pm.test(\"Updated At Validation\", function () {\r",
+							"    pm.expect(jsonData.updatedAt).to.eql(pm.environment.get(\"updAt\"))\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var firstName = pm.variables.replaceIn(\"{{$randomFirstName}}\")\r",
+							"pm.environment.set(\"firstName\", firstName)\r",
+							"\r",
+							"var jobTitle = pm.variables.replaceIn(\"{{$randomJobTitle}}\")\r",
+							"pm.environment.set(\"jobTitle\", jobTitle)\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"{{firstName}}\",\r\n    \"job\": \"{{jobTitle}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/users/2",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let response = pm.response.code;\r",
+							"let status = pm.response.status;\r",
+							"if(response === 200 && status ===\"OK\"){\r",
+							"    pm.test(\"Status code is 200\", function () {\r",
+							"    pm.expect(response).to.eql(200)\r",
+							"    });\r",
+							"}else{\r",
+							"    pm.test(\"Status code is not 200\", function () {\r",
+							"        pm.expect(response).to.eql(200);\r",
+							"    });\r",
+							"}\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.test(\"Name Validation\", function () {\r",
+							"    pm.expect(jsonData.name).to.eql(pm.environment.get(\"firstName\"))\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.test(\"Job Validation\", function () {\r",
+							"    pm.expect(jsonData.job).to.eql(pm.environment.get(\"jobTitle\"))\r",
+							"});\r",
+							"\r",
+							"//Extra Validation\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.environment.set (\"updAt\", jsonData.updatedAt)\r",
+							"pm.test(\"Updated At Validation\", function () {\r",
+							"    pm.expect(jsonData.updatedAt).to.eql(pm.environment.get(\"updAt\"))\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var firstName = pm.variables.replaceIn(\"{{$randomFirstName}}\")\r",
+							"pm.environment.set(\"firstName\", firstName)\r",
+							"\r",
+							"var jobTitle = pm.variables.replaceIn(\"{{$randomJobTitle}}\")\r",
+							"pm.environment.set(\"jobTitle\", jobTitle)\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"{{firstName}}\",\r\n    \"job\": \"{{jobTitle}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/users/2",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let response = pm.response.code;\r",
+							"let status = pm.response.status;\r",
+							"if(response === 204 && status ===\"No Content\"){\r",
+							"    pm.test(\"Status code is 204\", function () {\r",
+							"    pm.expect(response).to.eql(204)\r",
+							"    });\r",
+							"}else{\r",
+							"    pm.test(\"Status code is not 204\", function () {\r",
+							"        pm.expect(response).to.eql(204);\r",
+							"    });\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/users/23",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"23"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "REGISTER-SUCCESSFUL",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let response = pm.response.code;\r",
+							"let status = pm.response.status;\r",
+							"if(response === 200 && status ===\"OK\"){\r",
+							"    pm.test(\"Status code is 200\", function () {\r",
+							"    pm.expect(response).to.eql(200)\r",
+							"    });\r",
+							"}else{\r",
+							"    pm.test(\"Status code is not 200\", function () {\r",
+							"        pm.expect(response).to.eql(200);\r",
+							"    });\r",
+							"}\r",
+							"\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.environment.set (\"id\", jsonData.id)\r",
+							"pm.test(\"Id Validation\", function () {\r",
+							"    pm.expect(jsonData.id).to.eql(pm.environment.get(\"id\"))\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.environment.set (\"token\", jsonData.token)\r",
+							"pm.test(\"Token Validation\", function () {\r",
+							"    pm.expect(jsonData.token).to.eql(pm.environment.get(\"token\"))\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"//var email = pm.variables.replaceIn(\"{{$randomEmail}}\")\r",
+							"//pm.environment.set(\"email\", email)\r",
+							"\r",
+							"//var password = pm.variables.replaceIn(\"{{$randomPassword}}\")\r",
+							"//pm.environment.set(\"jobTitle\", password)\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"eve.holt@reqres.in\",\r\n    \"password\": \"pistol\"\r\n}\r\n\r\n//{\r\n//    \"email\": \"{{$randomEmail}}\",\r\n//    \"password\": \"{{$randomPassword}}\"\r\n//}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/register",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "REGISTER-UNSUCCESSFUL",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let response = pm.response.code;\r",
+							"let status = pm.response.status;\r",
+							"if(response === 400 && status === \"Bad Request\"){\r",
+							"    pm.test(\"Status code is 400\", function () {\r",
+							"    pm.expect(response).to.eql(400)\r",
+							"    });\r",
+							"}else{\r",
+							"    pm.test(\"Status code is not 400\", function () {\r",
+							"        pm.expect(response).to.eql(400);\r",
+							"    });\r",
+							"}\r",
+							"\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.environment.set (\"error\", jsonData.error)\r",
+							"pm.test(\"Error Message Validation\", function () {\r",
+							"    pm.expect(jsonData.error).to.eql(pm.environment.get(\"error\"))\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"sydney@fife\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/register",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LOGIN-SUCCESSFUL",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let response = pm.response.code;\r",
+							"let status = pm.response.status;\r",
+							"if(response === 200 && status ===\"OK\"){\r",
+							"    pm.test(\"Status code is 200\", function () {\r",
+							"    pm.expect(response).to.eql(200)\r",
+							"    });\r",
+							"}else{\r",
+							"    pm.test(\"Status code is not 200\", function () {\r",
+							"        pm.expect(response).to.eql(200);\r",
+							"    });\r",
+							"}\r",
+							"\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.environment.set (\"token\", jsonData.token)\r",
+							"pm.test(\"Token Validation\", function () {\r",
+							"    pm.expect(jsonData.token).to.eql(pm.environment.get(\"token\"))\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"eve.holt@reqres.in\",\r\n    \"password\": \"cityslicka\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/login",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LOGIN-UNSUCCESSFUL",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let response = pm.response.code;\r",
+							"let status = pm.response.status;\r",
+							"if(response === 400 && status ===\"Bad request\"){\r",
+							"    pm.test(\"Status code is 400\", function () {\r",
+							"    pm.expect(response).to.eql(400)\r",
+							"    });\r",
+							"}else{\r",
+							"    pm.test(\"Status code is not 400\", function () {\r",
+							"        pm.expect(response).to.eql(400);\r",
+							"    });\r",
+							"}\r",
+							"\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.environment.set (\"error\", jsonData.error)\r",
+							"pm.test(\"Error Message Validation\", function () {\r",
+							"    pm.expect(jsonData.error).to.eql(pm.environment.get(\"error\"))\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"peter@klaven\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/login",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELAYED-RESPONSE",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let response = pm.response.code;\r",
+							"let status = pm.response.status;\r",
+							"if(response === 200 && status === \"OK\"){\r",
+							"    pm.test(\"Status code is 200\", function () {\r",
+							"    pm.expect(response).to.eql(200)\r",
+							"    });\r",
+							"}else{\r",
+							"    pm.test(\"Status code is not 200\", function () {\r",
+							"        pm.expect(response).to.eql(200);\r",
+							"    });\r",
+							"}\r",
+							"\r",
+							"//Extra Validation\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.environment.set(\"paGe\", jsonData.page)\r",
+							"pm.test(\"Page Validation\", function () {\r",
+							"    pm.expect(jsonData.page).to.eql(pm.environment.get(\"paGe\"))\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.environment.set(\"perPage\", jsonData.per_page)\r",
+							"pm.test(\"Per Page Validation\", function () {\r",
+							"    pm.expect(jsonData.per_page).to.eql(pm.environment.get(\"perPage\"))\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.environment.set(\"toTal\", jsonData.total)\r",
+							"pm.test(\"Total Validation\", function () {\r",
+							"    pm.expect(jsonData.total).to.eql(pm.environment.get(\"toTal\"))\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.environment.set(\"totalPages\", jsonData.total_pages)\r",
+							"pm.test(\"Total Pages Validation\", function () {\r",
+							"    pm.expect(jsonData.total_pages).to.eql(pm.environment.get(\"totalPages\"))\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.environment.set(\"data_Id\", jsonData.data.id)\r",
+							"pm.test(\"Data of Id Validation\", function () {\r",
+							"    pm.expect(jsonData.data.id).to.eql(pm.environment.get(\"data_Id\"))\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.environment.set(\"data_Email\", jsonData.data.email)\r",
+							"pm.test(\"Data of Email Validation\", function () {\r",
+							"    pm.expect(jsonData.data.email).to.eql(pm.environment.get(\"data_Email\"))\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.environment.set(\"data_firstName\", jsonData.data.first_name)\r",
+							"pm.test(\"Data of First Name Validation\", function () {\r",
+							"    pm.expect(jsonData.data.first_name).to.eql(pm.environment.get(\"data_firstName\"))\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.environment.set(\"data_lastName\", jsonData.data.last_name)\r",
+							"pm.test(\"Data of Last Name Validation\", function () {\r",
+							"    pm.expect(jsonData.data.last_name).to.eql(pm.environment.get(\"data_lastName\"))\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.environment.set(\"data_Avatar\", jsonData.data.avatar)\r",
+							"pm.test(\"Data of Avatar Validation\", function () {\r",
+							"    pm.expect(jsonData.data.avatar).to.eql(pm.environment.get(\"data_Avatar\"))\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.environment.set(\"support_Url\", jsonData.support.url)\r",
+							"pm.test(\"Support of Url Validation\", function () {\r",
+							"    pm.expect(jsonData.support.url).to.eql(pm.environment.get(\"support_Url\"))\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json()\r",
+							"pm.environment.set(\"support_Text\", jsonData.support.text)\r",
+							"pm.test(\"Support of Text Validation\", function () {\r",
+							"    pm.expect(jsonData.support.text).to.eql(pm.environment.get(\"support_Text\"))\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/users?delay=3",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "delay",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

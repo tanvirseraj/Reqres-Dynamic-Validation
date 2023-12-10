@@ -1,0 +1,1 @@
+newman run Reqres-Dynamic-Validation.postman_collection.json -e Reqres-Dynamic-Validation.postman_environment.json -r cli,htmlextra
