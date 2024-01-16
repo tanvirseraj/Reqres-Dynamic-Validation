@@ -1,4 +1,4 @@
-# REQRES_VALIDATION_API_Newman
+# Reqres_Validation_API_Newman
 
 ## How to run this project
 - Clone this project
