@@ -1,4 +1,4 @@
-# Student_Rest_API_Newman
+# REQRES_VALIDATION_API_Newman
 
 ## How to run this project
 - Clone this project
@@ -17,7 +17,6 @@ newman run Reqres-Dynamic-Validation.postman_collection.json -e Reqres-Dynamic-V
 - Newman
 
 ## Prerequisite:
-- Jdk
 - Node Js
 - Newman
 - Html Report Library
